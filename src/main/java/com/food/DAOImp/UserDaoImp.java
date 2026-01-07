@@ -10,7 +10,7 @@ import java.util.List;
 import com.food.DAO.UserDao;
 import com.food.Model.User;
 
-public class UserDaoImp implements UserDao{
+public   class UserDaoImp implements UserDao{
 Connection connection=null;
 
 	String url="jdbc:mysql://localhost:3306/online_food_delivery";
@@ -31,7 +31,7 @@ Connection connection=null;
 	}
 
 	@Override
-	public void addUser(User user) {
+	public int addUser(User user) {
 		String query="insert into `user` ( `UserName`, `Password`, `EmailID`, `Address`, `Role`, `Phone`) values (?,?,?,?,?,?)";
 		try {
 			 stmt=connection.prepareStatement(query);
@@ -41,22 +41,23 @@ Connection connection=null;
 			 stmt.setString(3, user.getEmail());
 			 stmt.setString(4, user.getAddress());
 			 stmt.setString(5, user.getRole());
-			 stmt.setLong(6, user.getPhone());
-			 stmt.executeUpdate();
+			 stmt.setString(6, user.getPhone());
+			 return stmt.executeUpdate();
 			//System.out.println(value);
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
+			return 0;
 		}
 	}
 
 	@Override
-	public User getUser(int userId) {
+	public User getUser(String email) {
 		User user=null;
-		String sql="select * from `user` where `userId`=?";
+		String sql="select * from `user` where `EmailID`=?";
 		try {
 			stmt=connection.prepareStatement(sql);
-			stmt.setInt(1, userId);
+			stmt.setString(1, email);
 			ResultSet res=stmt.executeQuery();
 			if(res.next()) {
 				user=extractUserFromResultSet(res);
@@ -76,7 +77,7 @@ Connection connection=null;
 		user.setEmail(res.getString("EmailID"));
 		user.setAddress(res.getString("Address"));
 		user.setRole(res.getString("Role"));
-		user.setPhone(res.getLong("Phone"));
+		user.setPhone(res.getString("Phone"));
 		return user;
 	}
 
@@ -91,7 +92,7 @@ Connection connection=null;
 			stmt.setString(4, user.getEmail());
 			stmt.setString(5, user.getAddress());
 			stmt.setString(6, user.getRole());
-			stmt.setLong(7, user.getPhone());
+			stmt.setString(7, user.getPhone());
 			stmt.setInt(8, user.getUserId());
 			int value=stmt.executeUpdate();
 			System.out.println(value);

@@ -14,7 +14,7 @@
       <form action="registeruser" method="POST">
         <div>
           <div>
-            <label for="username" class="label">Username:</label>
+            <label for="username" class="label" >Username:</label>
           </div>
           <div>
             <input type="text" id="username" name="username" class="field" required/>
@@ -33,11 +33,11 @@
         </div>
          <div>
             <label for="address" class="label">Address</label>
-            <input type="text" id="address" class="field">
+            <input type="text" id="address" class="field" name="address">
          </div>
          <div>
             <label for="phone" class="label">Phone no. :</label>
-            <input type="text" id="phone" class="field">
+            <input type="text" id="phone" class="field" name="phone">
          </div>
         <div>
           <div>
@@ -53,6 +53,7 @@
            required />
           </div>
         </div>
+        
          <div>
           <div><label for="role" class="label">Role:</label></div>
           <select name="role" id="role" class="field">
@@ -61,6 +62,7 @@
             <option value="deliveryAgent">Delivery Agent</option>
           </select>
          </div>
+         
         <div id="button-container">
           <button class="label" id="button" class="field">Login</button>
         </div>

@@ -9,11 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/register")
-public class Register extends HttpServlet{
+@WebServlet("/registerpage")
+public class RegisterPage extends HttpServlet{
 @Override
 protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
 	RequestDispatcher rd=req.getRequestDispatcher("/WEB-INF/views/auth/register.jsp");
-	rd.forward(req, resp);
+     rd.forward(req, resp);
 }
 }

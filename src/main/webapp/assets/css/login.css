@@ -3,7 +3,17 @@
     margin:0;
 }
 
+/* #container {
+  max-width: 400px;
+  margin: 10rem auto;
+  padding: 1rem;
+  border: 2px solid black;
+  border-radius: 10px;
 
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+} */
 
 
 #container {
@@ -36,9 +46,6 @@ form {
     width:100%;
     color:aliceblue;
 background-color: rgba(18, 93, 18, 0.882);
-
-
-
 }
 
 #button-container{
