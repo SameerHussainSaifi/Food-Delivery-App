@@ -43,7 +43,7 @@ public class Login extends HttpServlet {
             HttpSession session = req.getSession(true);
             session.setAttribute("user", user);
 
-            req.getRequestDispatcher("/WEB-INF/views/auth/Home.jsp")
+            req.getRequestDispatcher("/WEB-INF/views/auth/home.jsp")
                .forward(req, resp);
 
         } else {

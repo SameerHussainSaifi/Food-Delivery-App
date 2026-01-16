@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet"
-      href="${pageContext.request.contextPath}/css/register.css">
+      href="${pageContext.request.contextPath}/assets/css/register.css">
 
 </head>
 <body>

@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%@ page import="com.food.Model.User" %>
+    
+    <%
+    HttpSession sessionObj = request.getSession();
+    User user = null;
+    if (sessionObj != null) {
+        user = (User) sessionObj.getAttribute("user");
+    }
+%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,16 +22,39 @@
 
 <body>
 
+
+
 <!-- Header -->
 <header class="header">
     <nav class="navbar container">
         <h1 class="logo">QuickDish</h1>
 
         <ul class="nav-links">
-            <li><a href="${pageContext.request.contextPath}/login" class="btn">Home</a></li>
-            <li><a href="${pageContext.request.contextPath}/login" class="btn">Login</a></li>
-            <li><a href="${pageContext.request.contextPath}/registerpage" class="btn">Register</a></li>
-        </ul>
+
+    <!-- HOME -->
+    <li>
+        <a href="${pageContext.request.contextPath }/home" class="btn">Home</a>
+    </li>
+
+    <!-- IF NOT LOGGED IN -->
+    <% if (user == null) { %>
+        <li>
+            <a href="${pageContext.request.contextPath}/login" class="btn">Login</a>
+        </li>
+        <li>
+            <a href="${pageContext.request.contextPath}/registerpage" class="btn">Register</a>
+        </li>
+    <% } %>
+
+    <!-- IF LOGGED IN -->
+   <% if (user != null) { %>
+        <li>
+            <a href="${pageContext.request.contextPath}/logout" class="btn">Logout</a>
+        </li>
+    <% } %>
+
+</ul>
+
     </nav>
 </header>
 

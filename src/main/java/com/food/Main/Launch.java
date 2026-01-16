@@ -27,7 +27,7 @@ public class Launch {
 		//updateTheUser();
 		//deleteUser();
 		
-		//addRestaurant();
+		addRestaurant();
 		//getTheRestaurant();
 		//updateTheRestaurant();
 		//deleteTheRestaurant();
@@ -56,7 +56,7 @@ public class Launch {
 		//getTheOrderHistory();
 		//updateTheOrderHistory();
 		//deleteTheOrderHistory();
-		getTheOrderHistoriesByUser();
+		//getTheOrderHistoriesByUser();
 	}
 	public static void addTheUser() {
 		user=new User();
@@ -96,15 +96,15 @@ public class Launch {
 //		user.setUserId(UserID);
 //		userDaoImp=new UserDaoImp();
 //		userDaoImp.getUser(user);
-		UserDaoImp u=new UserDaoImp();
-		User user=u.getUser(1);
-		System.out.println(user);
+//		UserDaoImp u=new UserDaoImp();
+//		User user=u.getUser(1);
+//		System.out.println(user);
 		
 	}
 	
 	public static void updateTheUser() {
 		
-		User user=new User(2,"alice","alice12456","alice@8974gmail.com","new york","deliveryAgent",7845895477l);
+		User user=new User();
         UserDaoImp userDaoImp=new UserDaoImp();
         userDaoImp.updateUser(user);
 	}
